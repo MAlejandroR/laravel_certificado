@@ -12,6 +12,8 @@
 
 </header>
 <nav>
+    <a href="">Productos</a>
+    <a href="">Clientes</a>
 @yield("menu")
 </nav>
 <main>

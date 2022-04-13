@@ -60,6 +60,9 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
+
+        return view("clientes.show",["cliente"=>$cliente]);
+
         //
     }
 
@@ -71,6 +74,8 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
+        return view("clientes.editar", ["cliente"=>$cliente]);
+
         //
     }
 
@@ -83,6 +88,17 @@ class ClienteController extends Controller
      */
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
+
+
+        $cliente->update($request->input());
+        $clientes = Cliente::all();
+        return view("clientes.listado",["clientes"=>$clientes]);
+
+
+
+
+
+
         //
     }
 
@@ -94,6 +110,10 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
+        $cliente->delete();
+        $clientes = Cliente::all();
+        return view("clientes.listado",["clientes"=>$clientes]);
+
         //
     }
 }

@@ -18,3 +18,8 @@ Route::get('/', function () {
 });
 
 Route::resource("clientes",App\Http\Controllers\ClienteController::class);
+
+
+Route::get("noticia/{noticia}", function($n){
+    return "<h1>Viendo noticia $n</h1>";
+});

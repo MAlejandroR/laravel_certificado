@@ -19,6 +19,17 @@
                 <td>{{$cliente->direccion}}</td>
                 <td>{{$cliente->email}}</td>
                 <td>{{$cliente->edad}}</td>
+
+                <td><a href="{{route('clientes.show',$cliente->id)}}">Mostrar</a></td>
+                <td><a href="{{route('clientes.edit',$cliente->id)}}">Modificar</a></td>
+                <td>
+                    <form action="{{route('clientes.destroy',$cliente->id)}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="submit" value="Borrar">
+                    </form>
+                </td>
+
             </tr>
         @endforeach
     </table>
